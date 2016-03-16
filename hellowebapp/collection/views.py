@@ -1,9 +1,7 @@
 from django.shortcuts import render
-
+from collection.models import Thing
 # Create your views here.
 
 def index(request):
-    # defining the variable
-    number = 6
-    #passing the variable to the view
-    return render(request, 'index.html', {'number': number,})
+    things = Thing.objects.all()
+    return render(request, 'index.html', {'things': things,})
